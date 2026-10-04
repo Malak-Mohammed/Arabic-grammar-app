@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة النحو العربي التفاعلية</title>
+    <title>منصة كفايات نحوية</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -18,20 +18,28 @@
             theme: {
                 extend: {
                     colors: {
-                        emerald: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
+                        gold: {
+                            100: '#fef9c3',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
                         },
-                        amber: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        },
-                        sand: '#FAF8F5',
+                        silver: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
                     },
                     fontFamily: {
                         cairo: ['Cairo', 'sans-serif'],
@@ -44,12 +52,12 @@
     <style>
         body {
             font-family: 'Cairo', 'Tajawal', sans-serif;
-            background-color: #F8F9FA;
-            color: #1F2937;
+            background-color: #F1F5F9;
+            color: #0F172A;
         }
         .bg-pattern {
-            background-color: #f7f9fa;
-            background-image: radial-gradient(#059669 0.5px, transparent 0.5px), radial-gradient(#059669 0.5px, #f7f9fa 0.5px);
+            background-color: #f8fafc;
+            background-image: radial-gradient(#ca8a04 0.5px, transparent 0.5px), radial-gradient(#ca8a04 0.5px, #f8fafc 0.5px);
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
             background-opacity: 0.05;
@@ -57,19 +65,20 @@
         .irab-tooltip {
             position: relative;
             cursor: pointer;
-            border-bottom: 2px dashed #059669;
+            border-bottom: 2px dashed #ca8a04;
             display: inline-block;
             transition: all 0.2s ease;
         }
         .irab-tooltip:hover {
-            background-color: #dcfce7;
-            color: #064e3b;
+            background-color: #fef9c3;
+            color: #713f12;
             border-radius: 4px;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(229, 231, 235, 0.8);
+        .silver-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #0f172a 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #facc15 0%, #eab308 50%, #ca8a04 100%);
         }
         /* Custom scrollbars */
         ::-webkit-scrollbar {
@@ -77,34 +86,43 @@
             height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #f1f5f9;
         }
         ::-webkit-scrollbar-thumb {
-            background: #059669;
+            background: #ca8a04;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #047857;
+            background: #a16207;
         }
     </style>
 </head>
-<body class="bg-sand min-h-screen flex flex-col font-cairo selection:bg-emerald-200 selection:text-emerald-900">
+<body class="bg-slate-100 min-h-screen flex flex-col font-cairo selection:bg-gold-200 selection:text-silver-900">
 
     <!-- Top Header -->
-    <header class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 space-x-reverse cursor-pointer" onclick="showPage('home-page')">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-500 text-emerald-950 flex items-center justify-center font-black text-2xl shadow-md border-2 border-amber-300 transform transition hover:scale-105">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
+    <header class="silver-gradient text-white shadow-xl sticky top-0 z-50 border-b-2 border-gold-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Logo & Title Section -->
+            <div class="flex items-center space-x-4 space-x-reverse cursor-pointer" onclick="showPage('home-page')">
+               <!-- Custom Logo Container -->
+<div class="relative flex flex-col items-center justify-center">
+    <div class="w-14 h-14 rounded-2xl bg-slate-800 border-2 border-gold-400 flex items-center justify-center overflow-hidden shadow-lg group hover:scale-105 transition duration-300">
+        <img src="images/logo.png" alt="شعار مدرسة جوهرة شناص" class="w-full h-full object-cover">
+    </div>
+</div>
+
                 <div>
-                    <h1 class="text-xl sm:text-2xl font-black tracking-wide text-amber-300">منصة النحو العربي</h1>
-                    <p class="text-xs text-emerald-200">تعلم قواعد اللغة العربية بالتفاعل والمتعة</p>
+                    <h1 class="text-2xl sm:text-3xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">كفايات نحوية</h1>
+                    <p class="text-xs font-semibold text-gold-400 tracking-wider flex items-center gap-1">
+                        <i class="fa-solid fa-school text-[10px]"></i>
+                        مدرسة جوهرة شناص
+                    </p>
                 </div>
             </div>
             
             <div class="flex items-center gap-3">
-                <button onclick="showPage('home-page')" id="nav-home-btn" class="hidden px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-semibold transition flex items-center gap-2 text-sm shadow">
+                <button onclick="showPage('home-page')" id="nav-home-btn" class="hidden px-4 py-2 rounded-xl bg-slate-700/80 hover:bg-slate-700 text-gold-300 font-semibold border border-gold-400/40 transition flex items-center gap-2 text-sm shadow">
                     <i class="fa-solid fa-house"></i>
                     <span>الرئيسية</span>
                 </button>
@@ -118,29 +136,29 @@
         <!-- PAGE 1: HOME PAGE (Select Lesson Grid) -->
         <section id="home-page" class="space-y-8 animate-fade-in">
             <!-- Hero Banner -->
-            <div class="relative bg-gradient-to-br from-emerald-800 to-emerald-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden border border-emerald-700">
-                <div class="absolute -left-10 -bottom-10 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative silver-gradient text-white rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden border-2 border-gold-500/30">
+                <div class="absolute -left-10 -bottom-10 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="relative z-10 max-w-3xl space-y-4">
-                    <span class="inline-block px-3 py-1 bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-bold rounded-full mb-1">
-                        ✨ التعلم باللعب والتفاعل
+                    <span class="inline-block px-3 py-1 bg-gold-400/20 border border-gold-400/40 text-gold-300 text-xs sm:text-sm font-bold rounded-full mb-1">
+                        ✨ مدرسة جوهرة شناص ترحب بكم
                     </span>
-                    <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">رحلتك الممتعة لإتقان قواعد اللغة العربية وإعرابها</h2>
-                    <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
-                        اختر أحد الدروس التفاعلية للبدء في الاستكشاف عبر الشروحات المتبسطة، الإنفوجرافيك التوضيحي، والألعاب والمسابقات التنافسية.
+                    <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight text-white">منصة كفايات نحوية التفاعلية</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        استكشف الدروس والتطبيقات النحوية عبر الشروحات المنسقة، الإنفوجرافيك التوضيحي، والألعاب التنافسية للوصول إلى أعلى مستويات الإتقان.
                     </p>
                 </div>
             </div>
 
             <!-- Search & Filter Bar -->
-            <div class="bg-white p-4 rounded-2xl shadow-md border border-gray-100 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="bg-white p-4 rounded-2xl shadow-md border border-slate-200 flex flex-col md:flex-row gap-4 items-center justify-between">
                 <div class="relative w-full md:w-96">
-                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" id="search-input" onkeyup="filterLessons()" placeholder="ابحث عن درس في النحو..." 
-                           class="w-full pr-11 pl-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" onkeyup="filterLessons()" placeholder="ابحث عن درس في الكفايات النحوية..." 
+                           class="w-full pr-11 pl-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent text-sm">
                 </div>
-                <div class="flex items-center gap-2 text-xs sm:text-sm text-gray-500 w-full md:w-auto justify-end">
-                    <span class="font-bold text-emerald-800" id="lesson-count-badge">14 درساً متكاملاً</span>
-                    <i class="fa-solid fa-book-open text-emerald-600"></i>
+                <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 w-full md:w-auto justify-end">
+                    <span class="font-bold text-silver-800" id="lesson-count-badge">14 درساً متكاملاً</span>
+                    <i class="fa-solid fa-book-open text-gold-600"></i>
                 </div>
             </div>
 
@@ -153,54 +171,54 @@
         <!-- PAGE 2: LESSON HUB (Choice Page: Interactive Lesson OR Game) -->
         <section id="lesson-hub-page" class="hidden space-y-6">
             <!-- Header Bar -->
-            <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-4">
-                    <button onclick="showPage('home-page')" class="p-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-xl transition flex items-center justify-center">
+                    <button onclick="showPage('home-page')" class="p-3 bg-slate-100 hover:bg-slate-200 text-silver-800 rounded-xl transition flex items-center justify-center">
                         <i class="fa-solid fa-arrow-right text-lg"></i>
                     </button>
                     <div>
-                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md" id="hub-lesson-number">درس 01</span>
-                        <h2 class="text-2xl font-black text-gray-800" id="hub-lesson-title">عنوان الدرس</h2>
+                        <span class="text-xs font-bold text-gold-700 bg-gold-50 border border-gold-200 px-2.5 py-1 rounded-md" id="hub-lesson-number">درس 01</span>
+                        <h2 class="text-2xl font-black text-slate-800" id="hub-lesson-title">عنوان الدرس</h2>
                     </div>
                 </div>
-                <button onclick="showPage('home-page')" class="text-sm font-bold text-gray-500 hover:text-emerald-700 transition">
-                    <i class="fa-solid fa-grid-2 text-emerald-600 ml-1"></i> جميع الدروس
+                <button onclick="showPage('home-page')" class="text-sm font-bold text-slate-500 hover:text-gold-600 transition">
+                    <i class="fa-solid fa-grid-2 text-gold-600 ml-1"></i> جميع الدروس
                 </button>
             </div>
 
             <!-- Two Main Option Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-4">
                 <!-- Option A: Interactive Lesson -->
-                <div onclick="openLessonMode('study')" class="group cursor-pointer bg-gradient-to-br from-white to-emerald-50/50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border-2 border-emerald-100 hover:border-emerald-500 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1">
+                <div onclick="openLessonMode('study')" class="group cursor-pointer bg-gradient-to-br from-white to-slate-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border-2 border-slate-200 hover:border-gold-500 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1">
                     <div class="space-y-4">
-                        <div class="w-16 h-16 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-3xl shadow-lg shadow-emerald-600/30 group-hover:scale-110 transition duration-300">
+                        <div class="w-16 h-16 rounded-2xl silver-gradient text-gold-400 flex items-center justify-center text-3xl shadow-lg border border-gold-500/30 group-hover:scale-110 transition duration-300">
                             <i class="fa-solid fa-chalkboard-user"></i>
                         </div>
-                        <span class="inline-block text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">الخيار الأول</span>
-                        <h3 class="text-2xl font-extrabold text-gray-800 group-hover:text-emerald-700 transition">درس تفاعلي وإنفوجرافيك</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            تصفح الشرح المنسق مع الرسوم التوضيحية والإنفوجرافيك، مع خاصية الإعراب التفاعلي عند الضغط على الكلمات، وقارئ الصوتي للنماذج.
+                        <span class="inline-block text-xs font-bold bg-slate-200 text-slate-800 px-3 py-1 rounded-full">الخيار الأول</span>
+                        <h3 class="text-2xl font-extrabold text-slate-800 group-hover:text-gold-700 transition">درس تفاعلي وإنفوجرافيك</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            تصفح الشرح المنسق مع الرسوم التوضيحية والإنفوجرافيك، مع خاصية الإعراب التفاعلي عند الضغط على الكلمات، وقارئ الصوت للنماذج.
                         </p>
                     </div>
-                    <div class="mt-8 flex items-center text-emerald-700 font-bold gap-2 group-hover:translate-x-[-6px] transition duration-300">
+                    <div class="mt-8 flex items-center text-gold-700 font-bold gap-2 group-hover:translate-x-[-6px] transition duration-300">
                         <span>ابدأ دراسة الدرس</span>
                         <i class="fa-solid fa-arrow-left"></i>
                     </div>
                 </div>
 
                 <!-- Option B: Interactive Game -->
-                <div onclick="openLessonMode('game')" class="group cursor-pointer bg-gradient-to-br from-white to-amber-50/50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border-2 border-amber-100 hover:border-amber-500 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1">
+                <div onclick="openLessonMode('game')" class="group cursor-pointer bg-gradient-to-br from-white to-gold-50/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl border-2 border-gold-200 hover:border-gold-500 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1">
                     <div class="space-y-4">
-                        <div class="w-16 h-16 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-3xl shadow-lg shadow-amber-500/30 group-hover:scale-110 transition duration-300">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient text-silver-900 flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition duration-300">
                             <i class="fa-solid fa-gamepad"></i>
                         </div>
-                        <span class="inline-block text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">الخيار الثاني</span>
-                        <h3 class="text-2xl font-extrabold text-gray-800 group-hover:text-amber-700 transition">تحدي ولعبة تفاعلية</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            اختبر معرفتك عبر لعبة تفاعلية مخصصة لهذا الدرس (تصنيف الكلمات، إكمال العلامات الإعرابية، وبناء الإعراب الصحيح) مع نقاط ومؤثرات صوتیة!
+                        <span class="inline-block text-xs font-bold bg-gold-100 text-gold-900 px-3 py-1 rounded-full">الخيار الثاني</span>
+                        <h3 class="text-2xl font-extrabold text-slate-800 group-hover:text-gold-700 transition">تحدي ولعبة تفاعلية</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            اختبر معرفتك عبر لعبة تفاعلية مخصصة لهذا الدرس (تصنيف الكلمات، إكمال العلامات الإعرابية، وبناء الإعراب الصحيح) مع نقاط ومؤثرات صوتية!
                         </p>
                     </div>
-                    <div class="mt-8 flex items-center text-amber-700 font-bold gap-2 group-hover:translate-x-[-6px] transition duration-300">
+                    <div class="mt-8 flex items-center text-gold-700 font-bold gap-2 group-hover:translate-x-[-6px] transition duration-300">
                         <span>ابدأ التحدي واللعب</span>
                         <i class="fa-solid fa-arrow-left"></i>
                     </div>
@@ -211,13 +229,13 @@
         <!-- MODE A: INTERACTIVE STUDY & INFOGRAPHIC -->
         <section id="study-view-page" class="hidden space-y-6">
             <!-- Header bar -->
-            <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-wrap justify-between items-center gap-4">
-                <button onclick="showPage('lesson-hub-page')" class="text-sm font-bold text-gray-600 hover:text-emerald-700 flex items-center gap-2">
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-4">
+                <button onclick="showPage('lesson-hub-page')" class="text-sm font-bold text-slate-600 hover:text-gold-700 flex items-center gap-2">
                     <i class="fa-solid fa-arrow-right"></i>
                     <span>العودة لخيارات الدرس</span>
                 </button>
-                <h3 id="study-lesson-title" class="text-xl font-black text-emerald-800">عنوان الدرس</h3>
-                <button onclick="openLessonMode('game')" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-bold transition shadow flex items-center gap-2">
+                <h3 id="study-lesson-title" class="text-xl font-black text-silver-900">عنوان الدرس</h3>
+                <button onclick="openLessonMode('game')" class="px-4 py-2 bg-gold-500 hover:bg-gold-600 text-silver-900 font-extrabold rounded-xl text-xs transition shadow flex items-center gap-2">
                     <i class="fa-solid fa-gamepad"></i>
                     <span>الانتقال للعبة</span>
                 </button>
@@ -233,23 +251,23 @@
                 <!-- Sidebar Interactive Tools (1 Col) -->
                 <div class="space-y-6">
                     <!-- Quick Rule Card -->
-                    <div class="bg-emerald-900 text-white p-6 rounded-3xl shadow-xl space-y-4 border border-emerald-700">
-                        <div class="flex items-center gap-3 text-amber-400">
+                    <div class="silver-gradient text-white p-6 rounded-3xl shadow-xl space-y-4 border-2 border-gold-400/40">
+                        <div class="flex items-center gap-3 text-gold-400">
                             <i class="fa-solid fa-lightbulb text-2xl"></i>
                             <h4 class="font-extrabold text-lg">خلاصة القاعدة</h4>
                         </div>
-                        <div id="rule-summary-text" class="text-emerald-100 text-sm leading-relaxed space-y-2">
+                        <div id="rule-summary-text" class="text-slate-200 text-sm leading-relaxed space-y-2">
                             <!-- Rule inject -->
                         </div>
                     </div>
 
                     <!-- Audio Reader Simulation -->
-                    <div class="bg-white p-6 rounded-3xl shadow-md border border-gray-100 space-y-4">
-                        <div class="flex items-center gap-3 text-emerald-700">
+                    <div class="bg-white p-6 rounded-3xl shadow-md border border-slate-200 space-y-4">
+                        <div class="flex items-center gap-3 text-gold-700">
                             <i class="fa-solid fa-volume-high text-xl"></i>
                             <h4 class="font-bold text-base">المستمع النحوي الآلي</h4>
                         </div>
-                        <p class="text-xs text-gray-500">انقر على الزر لسماع النطق الصحيح للأمثلة مع التشكيل:</p>
+                        <p class="text-xs text-slate-500">انقر على الزر لسماع النطق الصحيح للأمثلة مع التشكيل:</p>
                         <div id="audio-examples-container" class="space-y-2">
                             <!-- Injected -->
                         </div>
@@ -261,21 +279,21 @@
         <!-- MODE B: INTERACTIVE GAME PAGE -->
         <section id="game-view-page" class="hidden space-y-6">
             <!-- Header bar -->
-            <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-wrap justify-between items-center gap-4">
-                <button onclick="showPage('lesson-hub-page')" class="text-sm font-bold text-gray-600 hover:text-amber-700 flex items-center gap-2">
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-4">
+                <button onclick="showPage('lesson-hub-page')" class="text-sm font-bold text-slate-600 hover:text-gold-700 flex items-center gap-2">
                     <i class="fa-solid fa-arrow-right"></i>
                     <span>العودة لخيارات الدرس</span>
                 </button>
                 <div class="flex items-center gap-4">
-                    <span class="text-xs font-bold text-gray-500">النتيجة: <span id="game-score" class="text-emerald-700 text-lg font-black">0</span></span>
-                    <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+                    <span class="text-xs font-bold text-slate-500">النتيجة: <span id="game-score" class="text-gold-600 text-lg font-black">0</span></span>
+                    <span class="text-xs font-bold text-gold-800 bg-gold-50 px-2.5 py-1 rounded-full border border-gold-200">
                         🔥 حماس: <span id="game-streak">0</span>
                     </span>
                 </div>
             </div>
 
             <!-- Game Arena Box -->
-            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-gray-100 min-h-[450px] flex flex-col justify-between" id="game-arena">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200 min-h-[450px] flex flex-col justify-between" id="game-arena">
                 <!-- Dynamic Game Injected -->
             </div>
         </section>
@@ -283,35 +301,36 @@
     </main>
 
     <!-- Footer Credit -->
-    <footer class="bg-white border-t border-gray-200 py-6 mt-12 text-center text-gray-600 font-bold text-sm sm:text-base">
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-slate-700 font-bold text-sm sm:text-base shadow-inner">
+        <p class="text-gold-700 font-black mb-1">مدرسة جوهرة شناص</p>
         <p>إعداد: أ. فاطمة ناصر الزعابية</p>
     </footer>
 
     <!-- Modal Dialog for Game Summary -->
     <div id="game-result-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center space-y-6 animate-scale-up">
-            <div class="w-20 h-20 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center space-y-6 animate-scale-up border-2 border-gold-400">
+            <div class="w-20 h-20 bg-gold-100 text-gold-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner border border-gold-300">
                 <i class="fa-solid fa-trophy"></i>
             </div>
             <div>
-                <h3 class="text-2xl font-black text-gray-800">أحسنت! إنجاز رائع</h3>
-                <p class="text-gray-500 text-sm mt-1">لقد أكملت التحدي التفاعلي لهذا الدرس بنجاح</p>
+                <h3 class="text-2xl font-black text-slate-800">أحسنت! إنجاز رائع</h3>
+                <p class="text-slate-500 text-sm mt-1">لقد أكملت التحدي التفاعلي لهذا الدرس بنجاح</p>
             </div>
-            <div class="bg-emerald-50 rounded-2xl p-4 border border-emerald-100 flex justify-around">
+            <div class="bg-gold-50 rounded-2xl p-4 border border-gold-200 flex justify-around">
                 <div>
-                    <span class="block text-xs text-emerald-600 font-bold">مجموع النقاط</span>
-                    <span class="text-2xl font-black text-emerald-800" id="final-score">100</span>
+                    <span class="block text-xs text-gold-800 font-bold">مجموع النقاط</span>
+                    <span class="text-2xl font-black text-gold-700" id="final-score">100</span>
                 </div>
                 <div>
-                    <span class="block text-xs text-emerald-600 font-bold">التقييم</span>
-                    <span class="text-2xl font-black text-amber-500" id="final-rating">ممتاز 🌟</span>
+                    <span class="block text-xs text-gold-800 font-bold">التقييم</span>
+                    <span class="text-2xl font-black text-gold-600" id="final-rating">ممتاز 🌟</span>
                 </div>
             </div>
             <div class="flex gap-3">
-                <button onclick="restartCurrentGame()" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition">
+                <button onclick="restartCurrentGame()" class="flex-1 py-3 bg-gold-500 hover:bg-gold-600 text-silver-900 font-black rounded-xl text-sm transition">
                     إعادة اللعب 🔄
                 </button>
-                <button onclick="openLessonMode('study')" class="flex-1 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl text-sm transition">
+                <button onclick="openLessonMode('study')" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm transition">
                     عرض الشرح 📖
                 </button>
             </div>
@@ -329,48 +348,48 @@
                 icon: "fa-cubes",
                 summary: "تتكون الكلمة من ثلاثة أنواع: اسم، فعل، وحرف. وتتكون الجملة من نوعين رئيسيين: جملة اسمية تبدأ باسم، وجملة فعلية تبدأ بفعل.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800 flex items-center gap-2">
-                            <i class="fa-solid fa-sitemap"></i> أقسام الكلمة في اللغة العربية
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900 flex items-center gap-2">
+                            <i class="fa-solid fa-sitemap text-gold-600"></i> أقسام الكلمة في اللغة العربية
                         </h3>
-                        <p class="text-gray-600 leading-relaxed text-sm">
+                        <p class="text-slate-600 leading-relaxed text-sm">
                             كل كلمة نلفظ بها لا تخرج عن كونها واحداً من ثلاثة أقسام:
                         </p>
                         <!-- Infographic Cards -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 text-center space-y-2">
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center space-y-2">
                                 <span class="text-2xl">🏷️</span>
-                                <h4 class="font-black text-emerald-800">الاسم</h4>
-                                <p class="text-xs text-gray-600">يدل على معنى غير مقترن بزمن (مثل: طالب، شجرة، مكة).</p>
+                                <h4 class="font-black text-silver-900">الاسم</h4>
+                                <p class="text-xs text-slate-600">يدل على معنى غير مقترن بزمن (مثل: طالب، شجرة، مكة).</p>
                             </div>
-                            <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-center space-y-2">
+                            <div class="bg-gold-50 p-4 rounded-2xl border border-gold-200 text-center space-y-2">
                                 <span class="text-2xl">⏳</span>
-                                <h4 class="font-black text-amber-800">الفعل</h4>
-                                <p class="text-xs text-gray-600">يدل على حدث مقترن بزمن (ماضٍ: كتب، مضارع: يكتب، أمر: اكتب).</p>
+                                <h4 class="font-black text-gold-800">الفعل</h4>
+                                <p class="text-xs text-slate-600">يدل على حدث مقترن بزمن (ماضٍ: كتب، مضارع: يكتب، أمر: اكتب).</p>
                             </div>
-                            <div class="bg-blue-50 p-4 rounded-2xl border border-blue-200 text-center space-y-2">
+                            <div class="bg-slate-100 p-4 rounded-2xl border border-slate-300 text-center space-y-2">
                                 <span class="text-2xl">🔗</span>
-                                <h4 class="font-black text-blue-800">الحرف</h4>
-                                <p class="text-xs text-gray-600">كلمة لا يظهر معناها كاملاً إلا مع غيرها (مثل: في، من، إلى، ثم).</p>
+                                <h4 class="font-black text-silver-800">الحرف</h4>
+                                <p class="text-xs text-slate-600">كلمة لا يظهر معناها كاملاً إلا مع غيرها (مثل: في، من، إلى، ثم).</p>
                             </div>
                         </div>
 
-                        <hr class="border-gray-100">
+                        <hr class="border-slate-100">
 
-                        <h3 class="text-xl font-bold text-emerald-800 flex items-center gap-2">
-                            <i class="fa-solid fa-align-right"></i> أنواع الجمل
+                        <h3 class="text-xl font-bold text-silver-900 flex items-center gap-2">
+                            <i class="fa-solid fa-align-right text-gold-600"></i> أنواع الجمل
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200 space-y-2">
-                                <h4 class="font-bold text-gray-800">1. الجملة الاسمية</h4>
-                                <p class="text-xs text-gray-600">تبدأ باسم، وركناها الأساسيان: <strong class="text-emerald-700">المبتدأ والخبر</strong>.</p>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                                <h4 class="font-bold text-slate-800">1. الجملة الاسمية</h4>
+                                <p class="text-xs text-slate-600">تبدأ باسم، وركناها الأساسيان: <strong class="text-gold-700">المبتدأ والخبر</strong>.</p>
                                 <div class="bg-white p-3 rounded-xl border text-sm font-semibold">
                                     مثال: <span class="irab-tooltip" data-irab="مبتدأ مرفوع وعلامة رفعه الضمة">الشَّمْسُ</span> <span class="irab-tooltip" data-irab="خبر المبتدأ مرفوع وعلامة رفعه الضمة">سَاطِعَةٌ</span>.
                                 </div>
                             </div>
-                            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200 space-y-2">
-                                <h4 class="font-bold text-gray-800">2. الجملة الفعلية</h4>
-                                <p class="text-xs text-gray-600">تبدأ بفعل، وركناها الأساسيان: <strong class="text-emerald-700">الفعل والفاعل</strong>.</p>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                                <h4 class="font-bold text-slate-800">2. الجملة الفعلية</h4>
+                                <p class="text-xs text-slate-600">تبدأ بفعل، وركناها الأساسيان: <strong class="text-gold-700">الفعل والفاعل</strong>.</p>
                                 <div class="bg-white p-3 rounded-xl border text-sm font-semibold">
                                     مثال: <span class="irab-tooltip" data-irab="فعل ماضٍ مبني على الفتح">قَرَأَ</span> <span class="irab-tooltip" data-irab="فاعل مرفوع وعلامة رفعه الضمة">الطَّالِبُ</span> <span class="irab-tooltip" data-irab="مفعول به منصوب وعلامة نصبه الفتحة">الكِتَابَ</span>.
                                 </div>
@@ -399,33 +418,33 @@
                 icon: "fa-eye",
                 summary: "الاسم النكرة يدل على شَيْءٍ غير معَيَّنٍ، أما المعرفة فتدل على شَيْءٍ مُعَيَّنٍ (مثل: العلم، المعرف بـ ال، الضمائر، أسماء الإشارة).",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">النكرة والمعرفة</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">النكرة والمعرفة</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="p-5 bg-amber-50/60 rounded-2xl border border-amber-200 space-y-2">
-                                <h4 class="font-black text-amber-800 text-lg">النكرة</h4>
-                                <p class="text-xs text-gray-600">اسم يدل على شيء عام غير مخصص.</p>
-                                <div class="bg-white p-2.5 rounded-xl border text-sm font-bold text-amber-900">
+                            <div class="p-5 bg-gold-50 rounded-2xl border border-gold-200 space-y-2">
+                                <h4 class="font-black text-gold-800 text-lg">النكرة</h4>
+                                <p class="text-xs text-slate-600">اسم يدل على شيء عام غير مخصص.</p>
+                                <div class="bg-white p-2.5 rounded-xl border text-sm font-bold text-gold-900">
                                     أمثلة: (رَجُلٌ، كِتَابٌ، مَدِينَةٌ)
                                 </div>
                             </div>
-                            <div class="p-5 bg-emerald-50/60 rounded-2xl border border-emerald-200 space-y-2">
-                                <h4 class="font-black text-emerald-800 text-lg">المعرفة</h4>
-                                <p class="text-xs text-gray-600">اسم يدل على شيء خاص ومعيّن.</p>
-                                <div class="bg-white p-2.5 rounded-xl border text-sm font-bold text-emerald-900">
+                            <div class="p-5 bg-slate-100 rounded-2xl border border-slate-300 space-y-2">
+                                <h4 class="font-black text-silver-900 text-lg">المعرفة</h4>
+                                <p class="text-xs text-slate-600">اسم يدل على شيء خاص ومعيّن.</p>
+                                <div class="bg-white p-2.5 rounded-xl border text-sm font-bold text-silver-900">
                                     أمثلة: (الرَّجُلُ، مُحَمَّدٌ، هَذَا، أَنَا)
                                 </div>
                             </div>
                         </div>
 
-                        <h4 class="font-bold text-gray-800 pt-2">أهم أنواع المعارف:</h4>
+                        <h4 class="font-bold text-slate-800 pt-2">أهم أنواع المعارف:</h4>
                         <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-semibold">
-                            <div class="p-3 bg-gray-50 rounded-xl border">1. المعرّف بـ (الـ)</div>
-                            <div class="p-3 bg-gray-50 rounded-xl border">2. العَلَم (مثل: مَكَّة، زَيْد)</div>
-                            <div class="p-3 bg-gray-50 rounded-xl border">3. الضَّمَائِر (أنا، هو...)</div>
-                            <div class="p-3 bg-gray-50 rounded-xl border">4. أسْمَاء الإِشَارَة (هذا...)</div>
-                            <div class="p-3 bg-gray-50 rounded-xl border">5. الأَسْمَاء المَوْصُولَة</div>
-                            <div class="p-3 bg-gray-50 rounded-xl border">6. المُضَاف لِمَعْرِفَة</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border">1. المعرّف بـ (الـ)</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border">2. العَلَم (مثل: مَكَّة، زَيْد)</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border">3. الضَّمَائِر (أنا، هو...)</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border">4. أسْمَاء الإِشَارَة (هذا...)</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border">5. الأَسْمَاء المَوْصُولَة</div>
+                            <div class="p-3 bg-slate-50 rounded-xl border">6. المُضَاف لِمَعْرِفَة</div>
                         </ul>
                     </div>
                 `,
@@ -450,38 +469,38 @@
                 icon: "fa-repeat",
                 summary: "تأتي كان وأخواتها لترفع المبتدأ وتنصب الخبر، بينما تأتي إن وأخواتها لتنصب المبتدأ وترفع الخبر.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">مقارنة بين كان وأخواتها وإن وأخواتها</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">مقارنة بين كان وأخواتها وإن وأخواتها</h3>
                         
                         <div class="overflow-x-auto">
                             <table class="w-full text-sm text-right">
                                 <thead>
-                                    <tr class="bg-emerald-800 text-white">
+                                    <tr class="silver-gradient text-gold-300">
                                         <th class="p-3 rounded-r-xl">الأداة</th>
                                         <th class="p-3">نوعها</th>
                                         <th class="p-3">أثرها على المبتدأ</th>
                                         <th class="p-3 rounded-l-xl">أثرها على الخبر</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-100">
-                                    <tr class="hover:bg-gray-50">
-                                        <td class="p-3 font-bold text-emerald-700">كَانَ وأَخَوَاتُهَا</td>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-silver-800">كَانَ وأَخَوَاتُهَا</td>
                                         <td class="p-3">أفعال ناسخة</td>
-                                        <td class="p-3 text-blue-600 font-bold">يَبْقَى مَرْفُوعاً (اسم كان)</td>
-                                        <td class="p-3 text-red-600 font-bold">يَصِيرُ مَنْصُوباً (خبر كان)</td>
+                                        <td class="p-3 text-gold-700 font-bold">يَبْقَى مَرْفُوعاً (اسم كان)</td>
+                                        <td class="p-3 text-slate-600 font-bold">يَصِيرُ مَنْصُوباً (خبر كان)</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50">
-                                        <td class="p-3 font-bold text-amber-700">إِنَّ وأَخَوَاتُهَا</td>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-bold text-gold-700">إِنَّ وأَخَوَاتُهَا</td>
                                         <td class="p-3">حروف ناسخة</td>
-                                        <td class="p-3 text-red-600 font-bold">يَصِيرُ مَنْصُوباً (اسم إن)</td>
-                                        <td class="p-3 text-blue-600 font-bold">يَبْقَى مَرْفُوعاً (خبر إن)</td>
+                                        <td class="p-3 text-slate-600 font-bold">يَصِيرُ مَنْصُوباً (اسم إن)</td>
+                                        <td class="p-3 text-gold-700 font-bold">يَبْقَى مَرْفُوعاً (خبر إن)</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
-                            <h4 class="font-bold text-emerald-800 mb-2">مثال توضيحي تفاعلي:</h4>
+                        <div class="p-4 bg-gold-50/50 rounded-2xl border border-gold-200">
+                            <h4 class="font-bold text-gold-800 mb-2">مثال توضيحي تفاعلي:</h4>
                             <p class="text-sm">
                                 <span class="irab-tooltip" data-irab="فعل ماضٍ ناسخ">كَانَ</span> 
                                 <span class="irab-tooltip" data-irab="اسم كان مرفوع وعلامة رفعه الضمة">الجَوُّ</span> 
@@ -517,32 +536,32 @@
                 icon: "fa-bullseye",
                 summary: "المفاعيل كلها أسماء منصوبة تأتي لبيان من وقع عليه الفعل، أو لتأكيده، أو لبيان سببه أو زمانه ومكانه.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">عائلة المفاعيل الأربعة (كلها منصوبة)</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">عائلة المفاعيل الأربعة (كلها منصوبة)</h3>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
-                                <h4 class="font-black text-emerald-800">1. المفعول به</h4>
-                                <p class="text-xs text-gray-600">من وقع عليه فعل الفاعل.</p>
-                                <p class="text-xs font-bold text-emerald-900 mt-2">مثال: شَرِبَ الطِّفْلُ <span class="text-emerald-700">الحَلِيبَ</span>.</p>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                                <h4 class="font-black text-silver-900">1. المفعول به</h4>
+                                <p class="text-xs text-slate-600">من وقع عليه فعل الفاعل.</p>
+                                <p class="text-xs font-bold text-gold-700 mt-2">مثال: شَرِبَ الطِّفْلُ الحَلِيبَ.</p>
                             </div>
 
-                            <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
-                                <h4 class="font-black text-amber-800">2. المفعول المطلق</h4>
-                                <p class="text-xs text-gray-600">مصدر مشتق من لفظ الفعل لتوكيده.</p>
-                                <p class="text-xs font-bold text-amber-900 mt-2">مثال: نَجَحَ الطَّالِبُ <span class="text-amber-700">نَجَاحاً</span>.</p>
+                            <div class="p-4 bg-gold-50 rounded-2xl border border-gold-200">
+                                <h4 class="font-black text-gold-800">2. المفعول المطلق</h4>
+                                <p class="text-xs text-slate-600">مصدر مشتق من لفظ الفعل لتوكيده.</p>
+                                <p class="text-xs font-bold text-gold-900 mt-2">مثال: نَجَحَ الطَّالِبُ نَجَاحاً.</p>
                             </div>
 
-                            <div class="p-4 bg-purple-50 rounded-2xl border border-purple-200">
-                                <h4 class="font-black text-purple-800">3. المفعول لأجله</h4>
-                                <p class="text-xs text-gray-600">يبين سبب حدوث الفعل.</p>
-                                <p class="text-xs font-bold text-purple-900 mt-2">مثال: صُمْتُ <span class="text-purple-700">إِيمَاناً</span> وَاحْتِسَاباً.</p>
+                            <div class="p-4 bg-slate-100 rounded-2xl border border-slate-300">
+                                <h4 class="font-black text-silver-800">3. المفعول لأجله</h4>
+                                <p class="text-xs text-slate-600">يبين سبب حدوث الفعل.</p>
+                                <p class="text-xs font-bold text-silver-900 mt-2">مثال: صُمْتُ إِيمَاناً وَاحْتِسَاباً.</p>
                             </div>
 
-                            <div class="p-4 bg-blue-50 rounded-2xl border border-blue-200">
-                                <h4 class="font-black text-blue-800">4. المفعول فيه (الظرف)</h4>
-                                <p class="text-xs text-gray-600">يبين زمان أو مكان وقوع الفعل.</p>
-                                <p class="text-xs font-bold text-blue-900 mt-2">مثال: سَافَرْتُ <span class="text-blue-700">لَيْلاً</span>.</p>
+                            <div class="p-4 bg-gold-100/50 rounded-2xl border border-gold-300">
+                                <h4 class="font-black text-gold-900">4. المفعول فيه (الظرف)</h4>
+                                <p class="text-xs text-slate-600">يبين زمان أو مكان وقوع الفعل.</p>
+                                <p class="text-xs font-bold text-gold-800 mt-2">مثال: سَافَرْتُ لَيْلاً.</p>
                             </div>
                         </div>
                     </div>
@@ -569,19 +588,19 @@
                 icon: "fa-wand-magic-sparkles",
                 summary: "النعت تابِع يذكر لبيان صفة في متبوعه (المنعوت)، ويثبُت له نفس علامة الإعراب والتعريف والتأنيث والعدد.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">شروط التطابق في النعت والمنعوت</h3>
-                        <p class="text-xs text-gray-600">يتبع النعتُ المنعوتَ في أربعة أمور أساسية:</p>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">شروط التطابق في النعت والمنعوت</h3>
+                        <p class="text-xs text-slate-600">يتبع النعتُ المنعوتَ في أربعة أمور أساسية:</p>
                         
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-                            <div class="p-3 bg-emerald-50 rounded-xl font-bold text-emerald-800 text-xs">1. الإعراب<br>(رفع، نصب، جر)</div>
-                            <div class="p-3 bg-emerald-50 rounded-xl font-bold text-emerald-800 text-xs">2. النوع<br>(تذكير، تأنيث)</div>
-                            <div class="p-3 bg-emerald-50 rounded-xl font-bold text-emerald-800 text-xs">3. العدد<br>(مفرد، مثنى، جمع)</div>
-                            <div class="p-3 bg-emerald-50 rounded-xl font-bold text-emerald-800 text-xs">4. التعيين<br>(تعريف، تنكير)</div>
+                            <div class="p-3 bg-gold-50 rounded-xl font-bold text-gold-800 text-xs border border-gold-200">1. الإعراب<br>(رفع، نصب، جر)</div>
+                            <div class="p-3 bg-slate-100 rounded-xl font-bold text-silver-800 text-xs border border-slate-200">2. النوع<br>(تذكير، تأنيث)</div>
+                            <div class="p-3 bg-gold-50 rounded-xl font-bold text-gold-800 text-xs border border-gold-200">3. العدد<br>(مفرد، مثنى، جمع)</div>
+                            <div class="p-3 bg-slate-100 rounded-xl font-bold text-silver-800 text-xs border border-slate-200">4. التعيين<br>(تعريف، تنكير)</div>
                         </div>
 
-                        <div class="bg-gray-50 p-4 rounded-2xl border text-sm">
-                            مثال: جَاءَ <span class="irab-tooltip text-blue-700 font-bold" data-irab="فاعل مرفوع وعلامة رفعه الضمة (منعوت)">الطَّالِبُ</span> <span class="irab-tooltip text-emerald-700 font-bold" data-irab="نعت مرفوع وعلامة رفعه الضمة">المُجْتَهِدُ</span>.
+                        <div class="bg-slate-50 p-4 rounded-2xl border text-sm">
+                            مثال: جَاءَ <span class="irab-tooltip text-silver-800 font-bold" data-irab="فاعل مرفوع وعلامة رفعه الضمة (منعوت)">الطَّالِبُ</span> <span class="irab-tooltip text-gold-600 font-bold" data-irab="نعت مرفوع وعلامة رفعه الضمة">المُجْتَهِدُ</span>.
                         </div>
                     </div>
                 `,
@@ -602,23 +621,23 @@
                 icon: "fa-clock-rotate-left",
                 summary: "يكون الفعل المضارع مرفوعاً إذا لم تسبقه أداة نصب أو جزم، وينصب إذا سبقته (أن، لن، كي)، ويجزم إذا سبقته (لم، لا الناهية، لام الأمر).",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">حالات إعراب الفعل المضارع</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">حالات إعراب الفعل المضارع</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
-                                <h4 class="font-black text-emerald-800">الرفع 📈</h4>
-                                <p class="text-xs text-gray-600">إذا لم يسبق بأداة نصب أو جزم.</p>
-                                <p class="text-xs font-bold text-emerald-900 mt-2">يَكْتُبُ الطَّالِبُ.</p>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                                <h4 class="font-black text-silver-800">الرفع 📈</h4>
+                                <p class="text-xs text-slate-600">إذا لم يسبق بأداة نصب أو جزم.</p>
+                                <p class="text-xs font-bold text-silver-900 mt-2">يَكْتُبُ الطَّالِبُ.</p>
                             </div>
-                            <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
-                                <h4 class="font-black text-amber-800">النصب 🎯</h4>
-                                <p class="text-xs text-gray-600">إذا سبق بأدوات النصب: (أن، لن، كي...)</p>
-                                <p class="text-xs font-bold text-amber-900 mt-2">لَنْ يَهْمِلَ دَرْسَهُ.</p>
+                            <div class="p-4 bg-gold-50 rounded-2xl border border-gold-200">
+                                <h4 class="font-black text-gold-800">النصب 🎯</h4>
+                                <p class="text-xs text-slate-600">إذا سبق بأدوات النصب: (أن، لن، كي...)</p>
+                                <p class="text-xs font-bold text-gold-900 mt-2">لَنْ يَهْمِلَ دَرْسَهُ.</p>
                             </div>
-                            <div class="p-4 bg-red-50 rounded-2xl border border-red-200">
-                                <h4 class="font-black text-red-800">الجزم 🛑</h4>
-                                <p class="text-xs text-gray-600">إذا سبق بأدوات الجزم: (لَمْ، لا الناهية...)</p>
-                                <p class="text-xs font-bold text-red-900 mt-2">لَمْ يَتَأَخَّرْ عَنِ المَوْعِدِ.</p>
+                            <div class="p-4 bg-slate-200/60 rounded-2xl border border-slate-300">
+                                <h4 class="font-black text-slate-800">الجزم 🛑</h4>
+                                <p class="text-xs text-slate-600">إذا سبق بأدوات الجزم: (لَمْ، لا الناهية...)</p>
+                                <p class="text-xs font-bold text-slate-900 mt-2">لَمْ يَتَأَخَّرْ عَنِ المَوْعِدِ.</p>
                             </div>
                         </div>
                     </div>
@@ -640,18 +659,18 @@
                 icon: "fa-user-group",
                 summary: "المثنى ما دل على اثنين أو اثنتين بزيادة ألف ونون أو ياء ونون. يرفع بالألف وينصب ويجر بالياء.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">علامات إعراب المثنى</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">علامات إعراب المثنى</h3>
                         <div class="flex flex-col md:flex-row gap-4">
-                            <div class="flex-1 p-4 bg-emerald-50 rounded-2xl text-center">
-                                <span class="text-sm font-bold text-emerald-800">الرفع ⬆️</span>
-                                <p class="text-xl font-black text-emerald-900 mt-1">الأَلِف (انِ)</p>
-                                <p class="text-xs text-gray-600 mt-1">جَاءَ المَعَلِّمَانِ</p>
+                            <div class="flex-1 p-4 bg-gold-50 rounded-2xl text-center border border-gold-200">
+                                <span class="text-sm font-bold text-gold-800">الرفع ⬆️</span>
+                                <p class="text-xl font-black text-gold-900 mt-1">الأَلِف (انِ)</p>
+                                <p class="text-xs text-slate-600 mt-1">جَاءَ المَعَلِّمَانِ</p>
                             </div>
-                            <div class="flex-1 p-4 bg-amber-50 rounded-2xl text-center">
-                                <span class="text-sm font-bold text-amber-800">النصب والجر ⬇️</span>
-                                <p class="text-xl font-black text-amber-900 mt-1">اليَاء (يْنِ)</p>
-                                <p class="text-xs text-gray-600 mt-1">رَأَيْتُ المَعَلِّمَيْنِ</p>
+                            <div class="flex-1 p-4 bg-slate-100 rounded-2xl text-center border border-slate-300">
+                                <span class="text-sm font-bold text-silver-800">النصب والجر ⬇️</span>
+                                <p class="text-xl font-black text-silver-900 mt-1">اليَاء (يْنِ)</p>
+                                <p class="text-xs text-slate-600 mt-1">رَأَيْتُ المَعَلِّمَيْنِ</p>
                             </div>
                         </div>
                     </div>
@@ -673,16 +692,16 @@
                 icon: "fa-users",
                 summary: "هو ما دل على أكثر من اثنين بزيادة واو ونون في حالة الرفع، أو ياء ونون في حالتي النصب والجر.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">إعراب جمع المذكر السالم</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">إعراب جمع المذكر السالم</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="p-4 bg-emerald-50 rounded-2xl">
-                                <h4 class="font-bold text-emerald-800">حالة الرفع</h4>
-                                <p class="text-xs text-gray-600">بالواو: فَازَ <span class="text-emerald-700 font-bold">المُؤْمِنُونَ</span>.</p>
+                            <div class="p-4 bg-gold-50 rounded-2xl border border-gold-200">
+                                <h4 class="font-bold text-gold-800">حالة الرفع</h4>
+                                <p class="text-xs text-slate-600">بالواو: فَازَ <span class="text-gold-700 font-bold">المُؤْمِنُونَ</span>.</p>
                             </div>
-                            <div class="p-4 bg-amber-50 rounded-2xl">
-                                <h4 class="font-bold text-amber-800">حالة النصب والجر</h4>
-                                <p class="text-xs text-gray-600">بالياء: كَرَّمْنَا <span class="text-amber-700 font-bold">المُجْتَهِدِينَ</span>.</p>
+                            <div class="p-4 bg-slate-100 rounded-2xl border border-slate-300">
+                                <h4 class="font-bold text-silver-800">حالة النصب والجر</h4>
+                                <p class="text-xs text-slate-600">بالياء: كَرَّمْنَا <span class="text-silver-900 font-bold">المُجْتَهِدِينَ</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -704,20 +723,20 @@
                 icon: "fa-hands-holding-child",
                 summary: "هي: (أَبٌ، أَخٌ، حَمٌ، فُو، ذُو). ترفع بالواو، وتنصب بالألف، وتجر بالياء بشرط أن تكون مضافة ولغير ياء المتكلم.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">علامات إعراب الأسماء الخمسة</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">علامات إعراب الأسماء الخمسة</h3>
                         <div class="grid grid-cols-3 gap-3 text-center">
-                            <div class="p-3 bg-emerald-50 rounded-xl">
-                                <div class="text-xs text-gray-500 font-bold">الرفع</div>
-                                <div class="text-lg font-black text-emerald-700">الوَاو (أَبُوكَ)</div>
+                            <div class="p-3 bg-gold-50 rounded-xl border border-gold-200">
+                                <div class="text-xs text-slate-500 font-bold">الرفع</div>
+                                <div class="text-lg font-black text-gold-700">الوَاو (أَبُوكَ)</div>
                             </div>
-                            <div class="p-3 bg-amber-50 rounded-xl">
-                                <div class="text-xs text-gray-500 font-bold">النصب</div>
-                                <div class="text-lg font-black text-amber-700">الأَلِف (أَبَاكَ)</div>
+                            <div class="p-3 bg-slate-100 rounded-xl border border-slate-300">
+                                <div class="text-xs text-slate-500 font-bold">النصب</div>
+                                <div class="text-lg font-black text-silver-800">الأَلِف (أَبَاكَ)</div>
                             </div>
-                            <div class="p-3 bg-blue-50 rounded-xl">
-                                <div class="text-xs text-gray-500 font-bold">الجر</div>
-                                <div class="text-lg font-black text-blue-700">اليَاء (أَبِيكَ)</div>
+                            <div class="p-3 bg-gold-100/50 rounded-xl border border-gold-300">
+                                <div class="text-xs text-slate-500 font-bold">الجر</div>
+                                <div class="text-lg font-black text-gold-900">اليَاء (أَبِيكَ)</div>
                             </div>
                         </div>
                     </div>
@@ -739,17 +758,17 @@
                 icon: "fa-link",
                 summary: "تدخل حروف الجر على الأسماء فقط فتجرها وعلامة الجر الأصلية هي الكسرة.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">حروف الجر</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">حروف الجر</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">مِنْ</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">إِلَى</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">عَنْ</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">عَلَى</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">فِي</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">البَاء</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">الكَاف</span>
-                            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-bold rounded-lg text-sm">اللاَّم</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">مِنْ</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">إِلَى</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">عَنْ</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">عَلَى</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">فِي</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">البَاء</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">الكَاف</span>
+                            <span class="px-3 py-1.5 bg-gold-50 border border-gold-200 text-gold-800 font-bold rounded-lg text-sm">اللاَّم</span>
                         </div>
                     </div>
                 `,
@@ -770,12 +789,12 @@
                 icon: "fa-paperclip",
                 summary: "تركيب يتكون من مضاف ومضاف إليه مجرور دائماً، ويحذف التنوين ونون المثنى وجمع المذكر السالم من المضاف عند الإضافة.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">أركان أسلوب الإضافة</h3>
-                        <div class="p-4 bg-emerald-50 rounded-2xl border text-sm font-bold">
-                            <span class="text-emerald-800">طَالِبُ</span> <span class="text-amber-800">العِلْمِ</span> مَحْبُوبٌ.
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">أركان أسلوب الإضافة</h3>
+                        <div class="p-4 bg-slate-50 rounded-2xl border text-sm font-bold">
+                            <span class="text-silver-900">طَالِبُ</span> <span class="text-gold-700">العِلْمِ</span> مَحْبُوبٌ.
                         </div>
-                        <p class="text-xs text-gray-600">المضاف (طالب): يعرب حسب موقعه. المضاف إليه (العلم): مجرور دائماً.</p>
+                        <p class="text-xs text-slate-600">المضاف (طالب): يعرب حسب موقعه. المضاف إليه (العلم): مجرور دائماً.</p>
                     </div>
                 `,
                 audioExamples: ["طَالِبُ العِلْمِ مَحْبُوبٌ"],
@@ -795,13 +814,13 @@
                 icon: "fa-code-branch",
                 summary: "العطف هو ربط كلمة بأخرى باستخدام أحد حروف العطف، ويكون المعطوف تابعاً للمعطوف عليه في الإعراب.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">حروف العطف المعنوية</h3>
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">حروف العطف المعنوية</h3>
                         <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="p-3 bg-gray-50 rounded-xl font-bold">الوَاو: للمشاركة المعية</div>
-                            <div class="p-3 bg-gray-50 rounded-xl font-bold">الفَاء: للترتيب والتعقيب</div>
-                            <div class="p-3 bg-gray-50 rounded-xl font-bold">ثُمَّ: للترتيب مع التراخي</div>
-                            <div class="p-3 bg-gray-50 rounded-xl font-bold">أَوْ: للتخيير أو الشك</div>
+                            <div class="p-3 bg-slate-50 rounded-xl font-bold border">الوَاو: للمشاركة المعية</div>
+                            <div class="p-3 bg-slate-50 rounded-xl font-bold border">الفَاء: للترتيب والتعقيب</div>
+                            <div class="p-3 bg-slate-50 rounded-xl font-bold border">ثُمَّ: للترتيب مع التراخي</div>
+                            <div class="p-3 bg-slate-50 rounded-xl font-bold border">أَوْ: للتخيير أو الشك</div>
                         </div>
                     </div>
                 `,
@@ -822,11 +841,11 @@
                 icon: "fa-ban",
                 summary: "اسم لا يقبل التنوين، ويجر بالفتحة نيابة عن الكسرة بشرط ألا يكون معرفاً بـ (ال) أو مضافاً.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">خاصية الممنوع من الصرف</h3>
-                        <p class="text-xs text-gray-600">لا ينون ويجر بالفتحة نيابة عن الكسرة.</p>
-                        <div class="p-4 bg-emerald-50 rounded-2xl text-sm font-bold">
-                            مثال: صَلَّيْتُ فِي <span class="text-emerald-700">مَسَاجِدَ</span> كَثِيرَةٍ.
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">خاصية الممنوع من الصرف</h3>
+                        <p class="text-xs text-slate-600">لا ينون ويجر بالفتحة نيابة عن الكسرة.</p>
+                        <div class="p-4 bg-gold-50 rounded-2xl border border-gold-200 text-sm font-bold">
+                            مثال: صَلَّيْتُ فِي <span class="text-gold-700">مَسَاجِدَ</span> كَثِيرَةٍ.
                         </div>
                     </div>
                 `,
@@ -847,11 +866,11 @@
                 icon: "fa-clone",
                 summary: "التوكيد يذكر لتقوية المعنى، والبدل تابع يمهد له بذكر اسم قبله لبيانه وتوضيحه.",
                 studyHTML: `
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-800">التوكيد والبدل</h3>
-                        <p class="text-xs text-gray-600">من التوابع في الإعراب.</p>
-                        <div class="p-4 bg-amber-50 rounded-2xl text-sm font-bold">
-                            تأكيد معنوي: جَاءَ المَلِكُ <span class="text-amber-800">نَفْسُهُ</span>.
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-silver-900">التوكيد والبدل</h3>
+                        <p class="text-xs text-slate-600">من التوابع في الإعراب.</p>
+                        <div class="p-4 bg-slate-100 rounded-2xl border border-slate-300 text-sm font-bold">
+                            تأكيد معنوي: جَاءَ المَلِكُ <span class="text-gold-700">نَفْسُهُ</span>.
                         </div>
                     </div>
                 `,
@@ -885,21 +904,21 @@
 
             lessons.forEach(lesson => {
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-6 shadow-md hover:shadow-xl border border-gray-100 hover:border-emerald-300 transition-all duration-300 cursor-pointer flex flex-col justify-between transform hover:-translate-y-1 group";
+                card.className = "bg-white rounded-3xl p-6 shadow-md hover:shadow-xl border border-slate-200 hover:border-gold-400 transition-all duration-300 cursor-pointer flex flex-col justify-between transform hover:-translate-y-1 group";
                 card.onclick = () => selectLesson(lesson.id);
 
                 card.innerHTML = `
                     <div class="space-y-4">
                         <div class="flex justify-between items-center">
-                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xl font-black group-hover:bg-emerald-600 group-hover:text-white transition duration-300">
+                            <div class="w-12 h-12 rounded-2xl bg-slate-100 text-gold-600 flex items-center justify-center text-xl font-black group-hover:bg-gold-500 group-hover:text-silver-900 transition duration-300">
                                 <i class="fa-solid ${lesson.icon}"></i>
                             </div>
-                            <span class="text-xs font-extrabold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full">الدرس ${lesson.id}</span>
+                            <span class="text-xs font-extrabold text-gold-800 bg-gold-50 border border-gold-200 px-2.5 py-1 rounded-full">الدرس ${lesson.id}</span>
                         </div>
-                        <h3 class="text-lg font-black text-gray-800 group-hover:text-emerald-700 transition">${lesson.title}</h3>
-                        <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">${lesson.subtitle}</p>
+                        <h3 class="text-lg font-black text-slate-800 group-hover:text-gold-700 transition">${lesson.title}</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">${lesson.subtitle}</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center text-xs font-bold text-emerald-600">
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-gold-700">
                         <span>استكشف الشرح واللعبة</span>
                         <i class="fa-solid fa-chevron-left group-hover:translate-x-[-4px] transition duration-200"></i>
                     </div>
@@ -958,9 +977,9 @@
                 audioContainer.innerHTML = '';
                 currentLesson.audioExamples.forEach(text => {
                     const btn = document.createElement('button');
-                    btn.className = "w-full p-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold rounded-xl text-xs flex items-center justify-between transition border border-emerald-200";
+                    btn.className = "w-full p-2.5 bg-gold-50 hover:bg-gold-100 text-gold-900 font-bold rounded-xl text-xs flex items-center justify-between transition border border-gold-200";
                     btn.onclick = () => speakArabicText(text);
-                    btn.innerHTML = `<span>" ${text} "</span> <i class="fa-solid fa-circle-play text-emerald-600 text-base"></i>`;
+                    btn.innerHTML = `<span>" ${text} "</span> <i class="fa-solid fa-circle-play text-gold-600 text-base"></i>`;
                     audioContainer.appendChild(btn);
                 });
 
@@ -972,7 +991,6 @@
         }
 
         function setupAudioSynthesis() {
-            // Check for SpeechSynthesis support
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.getVoices();
             }
@@ -980,17 +998,17 @@
 
         function speakArabicText(text) {
             if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // Stop active speech
+                window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'ar-SA';
-                utterance.rate = 0.85; // Slightly slower for clear grammar pronunciation
+                utterance.rate = 0.85;
                 window.speechSynthesis.speak(utterance);
             } else {
                 alert("خاصية الصوت غير مدعومة في متصفحك بشكل مباشر.");
             }
         }
 
-        // Web Audio API Sound Generator for games
+        // Web Audio API Sound Generator
         function playSound(type) {
             try {
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1001,23 +1019,23 @@
 
                 if (type === 'correct') {
                     osc.type = 'sine';
-                    osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
-                    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1);
                     gain.gain.setValueAtTime(0.3, ctx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
                     osc.start();
                     osc.stop(ctx.currentTime + 0.3);
                 } else if (type === 'wrong') {
                     osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
-                    osc.frequency.setValueAtTime(164.81, ctx.currentTime + 0.15); // E3
+                    osc.frequency.setValueAtTime(220, ctx.currentTime);
+                    osc.frequency.setValueAtTime(164.81, ctx.currentTime + 0.15);
                     gain.gain.setValueAtTime(0.3, ctx.currentTime);
                     gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
                     osc.start();
                     osc.stop(ctx.currentTime + 0.35);
                 }
             } catch(e) {
-                console.log("Audio not allowed yet");
+                console.log("Audio play blocked");
             }
         }
 
@@ -1057,15 +1075,15 @@
 
                 container.innerHTML = `
                     <div class="text-center space-y-6">
-                        <span class="text-xs font-bold text-gray-400">السؤال ${currentItemIdx + 1} من ${data.items.length}</span>
-                        <h3 class="text-xl font-bold text-gray-800">صنّف الكلمة التالية إلى تصنيفها الصحيح:</h3>
-                        <div class="py-8 bg-emerald-50 rounded-2xl border-2 border-dashed border-emerald-300 text-3xl font-black text-emerald-900 shadow-inner inline-block px-12">
+                        <span class="text-xs font-bold text-slate-400">السؤال ${currentItemIdx + 1} من ${data.items.length}</span>
+                        <h3 class="text-xl font-bold text-slate-800">صنّف الكلمة التالية إلى تصنيفها الصحيح:</h3>
+                        <div class="py-8 bg-gold-50/60 rounded-2xl border-2 border-dashed border-gold-300 text-3xl font-black text-silver-900 shadow-inner inline-block px-12">
                             ${currentItem.word}
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-lg mx-auto pt-4">
                             ${data.categories.map(cat => `
                                 <button onclick="checkClassifyAnswer('${cat}', '${currentItem.category}')" 
-                                        class="py-4 bg-white hover:bg-emerald-600 hover:text-white border-2 border-emerald-600 text-emerald-800 font-black text-lg rounded-2xl transition shadow-md hover:shadow-lg">
+                                        class="py-4 bg-white hover:bg-gold-500 hover:text-silver-900 border-2 border-gold-500 text-gold-900 font-black text-lg rounded-2xl transition shadow-md hover:shadow-lg">
                                     ${cat}
                                 </button>
                             `).join('')}
@@ -1105,17 +1123,17 @@
 
                 container.innerHTML = `
                     <div class="space-y-6 max-w-2xl mx-auto">
-                        <div class="flex justify-between items-center text-xs font-bold text-gray-400">
+                        <div class="flex justify-between items-center text-xs font-bold text-slate-400">
                             <span>التحدي الإعرابي</span>
                             <span>السؤال ${currentQuestionIdx + 1} من ${questions.length}</span>
                         </div>
-                        <h3 class="text-xl font-black text-gray-800 leading-relaxed">${q.q}</h3>
+                        <h3 class="text-xl font-black text-slate-800 leading-relaxed">${q.q}</h3>
                         <div class="space-y-3 pt-2">
                             ${q.options.map((opt, idx) => `
                                 <button onclick="checkQuizAnswer(${idx},${q.answer})" 
-                                        class="w-full text-right p-4 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:bg-emerald-50 font-bold text-gray-700 transition flex items-center justify-between group">
+                                        class="w-full text-right p-4 rounded-2xl border-2 border-slate-200 hover:border-gold-500 hover:bg-gold-50/50 font-bold text-slate-700 transition flex items-center justify-between group">
                                     <span>${opt}</span>
-                                    <i class="fa-solid fa-circle-check text-emerald-500 opacity-0 group-hover:opacity-100 transition"></i>
+                                    <i class="fa-solid fa-circle-check text-gold-600 opacity-0 group-hover:opacity-100 transition"></i>
                                 </button>
                             `).join('')}
                         </div>
